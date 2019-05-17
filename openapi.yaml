@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Ivy School API Docs
+  description: Ivy School API Docs...
+  version: 1.0.0
+paths:
+  /assignment/{id}:
+    get:
+      summary: Returns a assignment.
+      description: Returns a assignment...
+      tags:
+        - Assignment
+      parameters:
+        - name: id
+          in: path
+          description: id of the assigment.
+          schema:
+            type: string
+      responses:
+        "200": # status code
+          description: A assignment.
+          content:
+            application/json:
+              schema:
+                type: object
+        "404": # status code
+          description: not found.
+          content:
+            application/json:
+              schema:
+                type: object
+  /assignment:
+    post:
+      summary: Create a assignment.
+      description: Create a assignment...
+      tags:
+        - Assignment
+      responses:
+        "201": # status code
+          description: A assignment.
+          content:
+            application/json:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                title:
+                  type: string
+                content:
+                  type: string
+                criteria:
+                  type: string
+                belongTo:
+                  type: string
