@@ -6,7 +6,7 @@ const swaggerUi = require('swagger-ui-express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost:27017/ivy', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/ivy');
 
 const router = require('./router');
 
@@ -19,5 +19,5 @@ app.use(bodyParser.json());
 app.use(router);
 
 app.listen(3000, () => {
-    console.log("Server starts at PORT: 3000");
+  console.log("Server starts at PORT: 3000");
 });

@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const AssignmentSchema = new Schema({
-    id: String,
-    name: String,
-    title: String,
-    content: String,
-    criteria: String,
-    belongTo: String,
+  name: String,
+  title: String,
+  content: String,
+  criteria: String,
+  belongTo: String,
+  details: {
+    teacher_id: mongoose.Types.ObjectId,
+    name: String
+  }
 });
 
 const AssignmentModel = mongoose.model('assignment', AssignmentSchema);

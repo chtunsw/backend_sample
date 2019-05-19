@@ -23,12 +23,96 @@ paths:
             application/json:
               schema:
                 type: object
+        "400": # status code
+          description: Invalid id.
+          content:
+            application/json:
+              schema:
+                type: object
         "404": # status code
           description: not found.
           content:
             application/json:
               schema:
                 type: object
+    delete:
+      summary: delete a assignment.
+      description: delete a assignment...
+      tags:
+        - Assignment
+      parameters:
+        - name: id
+          in: path
+          description: id of the assigment.
+          schema:
+            type: string
+      responses:
+        "200": # status code
+          description: A assignment.
+          content:
+            application/json:
+              schema:
+                type: object
+        "400": # status code
+          description: Invalid id.
+          content:
+            application/json:
+              schema:
+                type: object
+        "404": # status code
+          description: not found.
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      summary: update a assignment.
+      description: update a assignment...
+      tags:
+        - Assignment
+      parameters:
+        - name: id
+          in: path
+          description: id of the assigment.
+          schema:
+            type: string
+      responses:
+        "400": # status code
+          description: invalid id.
+          content:
+            application/json:
+              schema:
+                type: object
+        "200": # status code
+          description: A assignment.
+          content:
+            application/json:
+              schema:
+                type: object
+        "201": # status code
+          description: A assignment.
+          content:
+            application/json:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                title:
+                  type: string
+                content:
+                  type: string
+                criteria:
+                  type: string
+                belongTo:
+                  type: string
+                details: 
+                  type: object
   /assignment:
     post:
       summary: Create a assignment.
@@ -58,3 +142,40 @@ paths:
                   type: string
                 belongTo:
                   type: string
+                details: 
+                  type: object
+  /bulk/assignment/{ids}:
+    get:
+      summary: Returns assignments by ids.
+      description: Returns assignments by ids...
+      tags:
+        - Bulk Assignment
+      parameters:
+        - name: ids
+          in: path
+          description: ids of the assigments. It should look like `5ca45de909520ac243514afa,5ca45de909520ac243514aff`
+          schema:
+            type: array
+              items:
+                type: string
+      responses:
+        "200": # status code
+          description: List of assignments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400": # status code
+          description: Invalid ids.
+          content:
+            application/json:
+              schema:
+                type: object
+        "404": # status code
+          description: all ids not found.
+          content:
+            application/json:
+              schema:
+                type: object  
