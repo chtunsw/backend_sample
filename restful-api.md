@@ -12,11 +12,11 @@
 
 Body:
 {
-  name: "",
-  title: "",
-  content: "",
-  criteria: "",
-  belongTo: ""
+  "name": "",
+  "title": "",
+  "content": "",
+  "criteria": "",
+  "belongTo": ""
 }
 
 - PUT
@@ -25,11 +25,11 @@ Body:
 
 Body:
 {
-  name: "",
-  title: "",
-  content: "",
-  criteria: "",
-  belongTo: ""
+  "name": "",
+  "title": "",
+  "content": "",
+  "criteria": "",
+  "belongTo": ""
 }
 
 - DELETE
@@ -52,7 +52,7 @@ POST /bulk/task
 PUT /bulk/task
   request body [
     {
-      id: 'xxx',
+      "id": 'xxx',
       ...
     }
   ]
